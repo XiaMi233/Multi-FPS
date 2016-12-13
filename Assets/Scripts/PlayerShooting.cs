@@ -40,7 +40,7 @@ public class PlayerShooting : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, 50f)) {
                 if (hit.transform.tag == "Player") {
-                    hit.transform.GetComponent<PhotonView>().RPC("GetShot", PhotonTargets.All, damage);
+                    hit.transform.GetComponent<PhotonView>().RPC("GetShot", PhotonTargets.All, damage, PhotonNetwork.player.name);
                 }
                 //impacts[currentImpact].transform.position = hit.point;
                 //impacts[currentImpact].GetComponent<ParticleSystem>().Play();
